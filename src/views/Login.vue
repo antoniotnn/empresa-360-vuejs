@@ -38,13 +38,22 @@ export default {
     methods: {
         navegarPara() {
             //console.log(this.$router); //obj de roteamento
-            //this.$router.push('/home'); //add entrada no histórico de navegação do browser
+
+            //coletar os dados de email e senha
+            //realizar uma requisição http de autenticação
+            //receber o token de autorização
+
+            this.$router.push('/home'); //add entrada no histórico de navegação do browser
             //this.$router.push({ path: '/home' }); //outra forma
 
             //this.$router.replace('/home'); //diferença deste para o push, é que este não adiciona entrada no histórico de nafegação.
-            this.$router.replace({ path: '/home' }); //outra forma
+            //this.$router.replace({ path: '/home' }); //outra forma
 
-            
+            //this.$router.forward(); //avançar no histórico de rotas do navegador
+            //this.$router.back(); //retornar no histórico de rotas do navegador
+
+            //this.$router.go(2); //avançar ou retornar no histórico de rotas do navegador, passando um valor inteiro por parametro (quantidade de passos)
+            //this.$router.go(-2); //valor inteiro positivo, avança, valor inteiro negativo, retrocede
         }
     }
 }
