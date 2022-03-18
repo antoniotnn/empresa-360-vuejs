@@ -24,10 +24,28 @@
                         <div class="mb-3">
                             <input type="password" class="form-control" placeholder="Senha">
                         </div>
-                        <button class="btn btn-primary">Login</button>
+                        <button @click="navegarPara()" class="btn btn-primary">Login</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'Login',
+    methods: {
+        navegarPara() {
+            //console.log(this.$router); //obj de roteamento
+            //this.$router.push('/home'); //add entrada no histórico de navegação do browser
+            //this.$router.push({ path: '/home' }); //outra forma
+
+            //this.$router.replace('/home'); //diferença deste para o push, é que este não adiciona entrada no histórico de nafegação.
+            this.$router.replace({ path: '/home' }); //outra forma
+
+            
+        }
+    }
+}
+</script>
