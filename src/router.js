@@ -9,6 +9,7 @@ import Login from '@/views/Login.vue';
 import Servicos from '@/components/servicos/Servicos.vue';
 import Site from '@/views/Site.vue';
 import Vendas from '@/components/vendas/Vendas.vue';
+import VendasPadrao from '@/components/vendas/VendasPadrao.vue';
 
 const routes = [
     {
@@ -23,7 +24,8 @@ const routes = [
                 [
                     { path: 'leads', component: Leads }, //localhost:8080/home/vendas/leads
                     { path: 'leads/:id', component: Lead }, //localhost:8080/home/vendas/leads/id
-                    { path: 'contratos', component: Contratos } //localhost:8080/home/vendas/contratos
+                    { path: 'contratos', component: Contratos }, //localhost:8080/home/vendas/contratos
+                    { path: '', component: VendasPadrao } //localhost:8080/home/vendas/  (componente padrao na rota raiz, com path em branco)
                 ] 
             }, //localhost:8080/home/vendas (obs, na declaração, não iniciar com / pois se fizer isso o vue vai entender que partirá da raiz, ou seja localhost:8080/ . Sem colocar a barra, já entende-se q é uma rota filha, de dentro de /home)
             { path: 'servicos', component: Servicos }, //localhost:8080/home/servicos
