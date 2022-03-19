@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'; //createWebHashHistory
 
 import Contratos from '@/components/vendas/Contratos.vue';
+import Dashboard from '@/components/dashboard/Dashboard.vue';
 import Home from '@/views/Home.vue';
 import Leads from '@/components/vendas/Leads.vue';
 import Login from '@/views/Login.vue';
@@ -23,7 +24,8 @@ const routes = [
                     { path: 'contratos', component: Contratos } //localhost:8080/home/vendas/contratos
                 ] 
             }, //localhost:8080/home/vendas (obs, na declaração, não iniciar com / pois se fizer isso o vue vai entender que partirá da raiz, ou seja localhost:8080/ . Sem colocar a barra, já entende-se q é uma rota filha, de dentro de /home)
-            { path: 'servicos', component: Servicos }
+            { path: 'servicos', component: Servicos }, //localhost:8080/home/servicos
+            { path: 'dashboard', component: Dashboard } //localhost:8080/home/dashboard
         ]
     },
     {

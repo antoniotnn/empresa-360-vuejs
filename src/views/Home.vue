@@ -2,7 +2,7 @@
     <div>
         <nav class="navbar navbar-light bg-light menu-superior">
             <div class="container">
-                <a class="navbar-brand" href="#">Empresa 360</a>
+                <router-link class="navbar-brand" to="/home">Empresa 360</router-link>
                 <div class="navbar-nav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -15,7 +15,7 @@
 
         <div class="d-flex">
             <div class="list-group menu-esquerda">
-                <router-link class="list-group-item list-group-item-action" to="/home" exact-active-class="active"> <!-- indicando qual classe CSS é pra ser usada ao indicar um link exato ativo. Podendo ser usado tambem o active-class (prop) para indicar o mesmo, porém pra link ativos por correspondencia). Neste caso está apontando para a classe active do Bootstrap CSS) -->
+                <router-link class="list-group-item list-group-item-action" to="/home/dashboard" exact-active-class="active"> <!-- indicando qual classe CSS é pra ser usada ao indicar um link exato ativo. Podendo ser usado tambem o active-class (prop) para indicar o mesmo, porém pra link ativos por correspondencia). Neste caso está apontando para a classe active do Bootstrap CSS) -->
                     <i class="bi bi-speedometer2"></i> Dashboard
                 </router-link>
                 <router-link class="list-group-item list-group-item-action" to="/home/vendas" exact-active-class="active">
