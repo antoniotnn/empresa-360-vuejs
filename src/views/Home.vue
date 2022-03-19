@@ -15,7 +15,15 @@
 
         <div class="d-flex">
             <div class="list-group menu-esquerda">
-                <a class="list-group-item list-group-item-action" href="#"><i class="bi bi-speedometer2"></i> Dashboard</a>
+                <router-link class="list-group-item list-group-item-action" to="/home">
+                    <i class="bi bi-speedometer2"></i> Dashboard
+                </router-link>
+                <router-link class="list-group-item list-group-item-action" to="/home/vendas">
+                    <i class="bi bi-cart"></i> Vendas
+                </router-link>
+                <router-link class="list-group-item list-group-item-action" to="/home/servicos">
+                    <i class="bi bi-card-checklist"></i> Serviços
+                </router-link>
             </div>
 
             <div class="w-100">
@@ -26,8 +34,7 @@
                 </nav>
 
                 <div class="container-fluid">
-                    <h1 class="mt-4">Visões relacionadas ao menu</h1>
-                    <p>Aqui podemos apresentar as views de acordo com as opções do menu.</p>
+                    <router-view />
                 </div>
 
             </div>
