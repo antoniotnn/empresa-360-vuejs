@@ -15,7 +15,7 @@
 
         <div class="d-flex">
             <div class="list-group menu-esquerda">
-                <router-link class="list-group-item list-group-item-action" to="/home" exact-active-class="active"> <!-- indicando qual classe CSS é pra ser usada ao indicar um link exato ativo. Podendo ser usado tambem o active-class (prop) para indicar o mesmo, porém pra link ativos por correspondencia). Neste caso está apontando para a classe active do Bootstrap CSS)
+                <router-link class="list-group-item list-group-item-action" to="/home" exact-active-class="active"> <!-- indicando qual classe CSS é pra ser usada ao indicar um link exato ativo. Podendo ser usado tambem o active-class (prop) para indicar o mesmo, porém pra link ativos por correspondencia). Neste caso está apontando para a classe active do Bootstrap CSS) -->
                     <i class="bi bi-speedometer2"></i> Dashboard
                 </router-link>
                 <router-link class="list-group-item list-group-item-action" to="/home/vendas" exact-active-class="active">
