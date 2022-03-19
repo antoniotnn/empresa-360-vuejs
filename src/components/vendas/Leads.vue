@@ -40,9 +40,6 @@ import ApiMixin from '@/mixins/ApiMixin.js';
 export default {
     name: 'Leads',
     mixins: [ApiMixin],
-    data: () => ({
-        dados: null
-    }),
     created() {
         this.getDadosApi('http://localhost:3000/leads');
     }
