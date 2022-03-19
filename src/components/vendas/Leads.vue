@@ -16,7 +16,7 @@
                     <td>{{ d.nome }}</td>
                     <td>{{ d.telefone }}</td>
                     <td>
-                        <router-link class="btn btn-sm btn-primary" to="/home/vendas/leads">
+                        <router-link class="btn btn-sm btn-primary" :to="`/home/vendas/leads/${d.id}`">
                             <i class="bi bi-pencil-square" style="cursor: pointer"></i>
                         </router-link>
                     </td>
