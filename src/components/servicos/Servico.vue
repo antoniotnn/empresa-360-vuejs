@@ -13,10 +13,14 @@ import ApiMixin from '@/mixins/ApiMixin.js';
 export default {
     name: 'Servico',
     mixins: [ApiMixin],
+    props: ['id'],
     created() {
+        //console.log('Servico', this.$route.params.id);
+        //console.log('Via props', this.$props);
         //console.log(this.$route.params);
         //console.log('Componente Serviço Criado');
-        this.getDadosApi(`http://localhost:3000/servicos/${this.$route.params.id}`);
+        //this.getDadosApi(`http://localhost:3000/servicos/${this.$route.params.id}`);
+        this.getDadosApi(`http://localhost:3000/servicos/${this.id}`);
     },
     beforeRouteUpdate(to, from, next) { //metodo para fazer tratativa antes de atualizar uma rota. Alternativa para a abordagem watch, comentada abaixo.
         //to = $route para onde estamos indo

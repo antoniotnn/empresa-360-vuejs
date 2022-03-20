@@ -46,7 +46,16 @@ const routes = [
             }, //localhost:8080/home/vendas (obs, na declaração, não iniciar com / pois se fizer isso o vue vai entender que partirá da raiz, ou seja localhost:8080/ . Sem colocar a barra, já entende-se q é uma rota filha, de dentro de /home)
             { path: 'servicos', component: Servicos, name: 'servicos', children: 
                 [
-                    { path: ':id', alias: '/s/:id', name: 'servico', components: 
+                    { 
+                        path: ':id', 
+                        props: {
+                            default: true,
+                            indicadores: true,
+                            opcoes: true
+                        },
+                        alias: '/s/:id', 
+                        name: 'servico', 
+                        components: 
                         {
                             default: Servico,
                             indicadores: Indicadores,
