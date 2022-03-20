@@ -63,38 +63,19 @@ export default {
     }),
     methods: {
         pesquisar() {
-            //console.log(this.formPesquisa);
-
-            Object.keys(this.formPesquisa).forEach(chave => {
-                if (this.formPesquisa[chave] == '') delete this.formPesquisa[chave];
-            });
-
-            //console.log(this.formPesquisa);
-
-            const queryParams = new URLSearchParams(this.formPesquisa).toString();
-            //console.log(queryParams);
-            const url = `http://localhost:3000/contratos?${this.parametrosDerelacionamento}&${queryParams}`;
-            this.getDadosApi(url);
+            const url = `http://localhost:3000/contratos?${this.parametrosDerelacionamento}`;
+            this.getDadosApi(url, this.formPesquisa);
         }
     },
     created() {
-        //console.log(this.$route);
-        const queryParams = new URLSearchParams(this.$route.query).toString();
-        const url = `http://localhost:3000/contratos?${this.parametrosDerelacionamento}&${queryParams}`;
-        this.getDadosApi(url);
+        const url = `http://localhost:3000/contratos?${this.parametrosDerelacionamento}`;
+        this.getDadosApi(url, this.$route.query);
     },
     beforeRouteUpdate(to, from, next) {
+        const url = `http://localhost:3000/contratos?${this.parametrosDerelacionamento}`;
+
+        this.getDadosApi(url, to.query);
         
-        console.log(to.query); //objeto => URLSearchParams (há necessidade de converter o to.query para esse tipo de obj URLSearchParams, para que se adeque a escrita, modo de passagem de parametros via url)
-
-        const queryParams = new URLSearchParams(to.query).toString(); //Criando obj URLSearchParams e convertendo o to.query para tal, e convertendo para String., Esse URLSearchParams converte todos os query params nao importam quantos estejam.
-        const url = `http://localhost:3000/contratos?${this.parametrosDerelacionamento}&${queryParams}`;
-
-        console.log(queryParams);
-        //console.log(url);
-
-        this.getDadosApi(url);
-
         next();
     }
 }
