@@ -118,4 +118,12 @@ const router = createRouter({
     //routes   -- outra forma, somente assim pois tem o mesmo nome (chave e valor)
 });
 
+router.beforeEach((to, from) => { //parametros: to, from e next, sendo que  next está sendo descontinuado na proxima versao do vue, Vue4
+    console.log('Origem: ', from);
+    console.log('Destino: ', to);
+    //verificar se o usuário está autorizado a acessar a rota.
+
+    console.log('Método executado antes do acesso a rota destino');
+}); //método chamado antes de qualquer navegação, independente de que rota será acessada, é um guarda de rota global
+
 export default router;
