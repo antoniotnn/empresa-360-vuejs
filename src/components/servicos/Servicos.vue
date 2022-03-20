@@ -15,7 +15,9 @@
             </div>
         </div>
 
-        <router-view class="mt-3" />
+        <router-view class="mt-3" /> <!-- devido não ter nome definido (prop name), é definido como um router view default -->
+        <router-view name="opcoes" />
+        <router-view name="indicadores" />
     </div>
 </template>
 
