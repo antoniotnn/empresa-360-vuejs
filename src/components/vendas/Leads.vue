@@ -42,6 +42,10 @@ export default {
     mixins: [ApiMixin],
     created() {
         this.getDadosApi('http://localhost:3000/leads');
+    },
+    //beforeRouteEnter(to, from, next) { // trabalha com esses parametros
+    beforeRouteEnter() { 
+        console.log('Guarda de Componente beforeRouteEnter');
     }
 }
 </script>
