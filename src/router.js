@@ -9,6 +9,7 @@ import Lead from '@/components/vendas/Lead.vue';
 import Leads from '@/components/vendas/Leads.vue';
 import Login from '@/views/Login.vue';
 import Opcoes from '@/components/servicos/Opcoes.vue';
+import PaginaNaoEncontrada from '@/views/PaginaNaoEncontrada.vue';
 import Servico from '@/components/servicos/Servico.vue';
 import Servicos from '@/components/servicos/Servicos.vue';
 import Site from '@/views/Site.vue';
@@ -68,6 +69,8 @@ const routes = [
             return { name: 'vendas' }
         }
     },
+    //{ path: '/:catchAll(.*)*', redirect: '/' } // rota pega tudo (para quando a rota não existe, redirecionar pra ela. Interessante para criar uma rota erro 404).  No Vue2 = * , No Vue3 = expressão regular. Vue3 = '/:catchAll(.*)*'
+    { path: '/:catchAll(.*)*', component: PaginaNaoEncontrada }
 ];
 
 const router = createRouter({
