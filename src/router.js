@@ -30,7 +30,7 @@ const routes = [
                     { path: 'leads', component: Leads, name: 'leads' }, //localhost:8080/home/vendas/leads
                     { path: 'leads/:id', component: Lead, name: 'lead', alias: ['/l/:id', '/pessoa/:id', '/:id'] }, //localhost:8080/home/vendas/leads/id, alias: são apelidos para rotas.
                     { path: 'contratos', component: Contratos, name: 'contratos' }, //localhost:8080/home/vendas/contratos
-                    { path: '', component: VendasPadrao } //localhost:8080/home/vendas/  (componente padrao na rota raiz, com path em branco)
+                    { path: '', component: VendasPadrao, name: 'vendas' } //localhost:8080/home/vendas/  (componente padrao na rota raiz, com path em branco)
                 ] 
             }, //localhost:8080/home/vendas (obs, na declaração, não iniciar com / pois se fizer isso o vue vai entender que partirá da raiz, ou seja localhost:8080/ . Sem colocar a barra, já entende-se q é uma rota filha, de dentro de /home)
             { path: 'servicos', component: Servicos, name: 'servicos', children: 
@@ -55,7 +55,19 @@ const routes = [
     {
         path: '/login', //localhost:8080/login
         component: Login
-    }
+    },
+    { path: '/redirecionamento-1', redirect: '/home/servicos' }, // apenas um redirecionamento, e não uma rota alternativa
+    { path: '/redirecionamento-2', redirect: { name: 'leads' } }, // outra forma, apontando pra outro lugar, pelo name
+    { path: '/redirecionamento-3', redirect: '/home/vendas' },
+    { path: '/redirecionamento-4', redirect: { name: 'vendas' } },
+    { path: '/redirecionamento-5', redirect: to => {
+            //podemos programar algo antes do redirecionamento ser efetivado
+            console.log(to)
+
+            //return '/home/vendas';
+            return { name: 'vendas' }
+        }
+    },
 ];
 
 const router = createRouter({
