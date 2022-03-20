@@ -31,10 +31,26 @@ const routes = [
                     { path: 'leads', component: Leads, name: 'leads' }, //localhost:8080/home/vendas/leads
                     { 
                         path: 'leads/:id/:outroParametro',
+                        props: true,
+                        /*
                         props: {
                             id: 4,
                             outroParametro: 'pt-br'
                         },
+                        */
+                        /*
+                        props: route => {
+                            console.log('rota ativa: ', route);
+                            
+                            let teste = route.query.idioma ? route.query.idioma : route.params.outroParametro;
+
+                            // implementando uma lógica para definir as props que serão submetidas para o componente roteado.
+                            return {
+                                id: parseInt(route.params.id) +1,
+                                outroParametro: teste
+                            }
+                        },
+                        */
                         component: Lead, 
                         name: 'lead', 
                         alias: [
