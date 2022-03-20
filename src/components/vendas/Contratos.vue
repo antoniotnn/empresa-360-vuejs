@@ -14,8 +14,8 @@
             <tbody>
                 <tr v-for="d in dados" :key="d.id">
                     <td>{{ d.id }}</td>
-                    <td>{{ d.leadId }}</td>
-                    <td>{{ d.servicoId }}</td>
+                    <td>{{ d.lead.nome }}</td>
+                    <td>{{ d.servico.servico }}</td>
                     <td>{{ d.data_inicio }}</td>
                     <td>{{ d.data_fim }}</td>
                 </tr>
@@ -31,7 +31,7 @@ export default {
     name: 'Contratos',
     mixins: [ApiMixin],
     created() {
-        this.getDadosApi('http://localhost:3000/contratos');
+        this.getDadosApi('http://localhost:3000/contratos?_expand=lead&_expand=servico');
     }
 }
 </script>
