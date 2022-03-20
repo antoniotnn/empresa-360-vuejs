@@ -22,19 +22,20 @@ const routes = [
     },
     {
         path: '/home', //localhost:8080/home
+        alias: '/app',
         component: Home,
         children: [
             { path: 'vendas', component: Vendas, children: 
                 [
                     { path: 'leads', component: Leads, name: 'leads' }, //localhost:8080/home/vendas/leads
-                    { path: 'leads/:id', component: Lead, name: 'lead' }, //localhost:8080/home/vendas/leads/id
+                    { path: 'leads/:id', component: Lead, name: 'lead', alias: ['/l/:id', '/pessoa/:id', '/:id'] }, //localhost:8080/home/vendas/leads/id, alias: são apelidos para rotas.
                     { path: 'contratos', component: Contratos, name: 'contratos' }, //localhost:8080/home/vendas/contratos
                     { path: '', component: VendasPadrao } //localhost:8080/home/vendas/  (componente padrao na rota raiz, com path em branco)
                 ] 
             }, //localhost:8080/home/vendas (obs, na declaração, não iniciar com / pois se fizer isso o vue vai entender que partirá da raiz, ou seja localhost:8080/ . Sem colocar a barra, já entende-se q é uma rota filha, de dentro de /home)
             { path: 'servicos', component: Servicos, name: 'servicos', children: 
                 [
-                    { path: ':id', name: 'servico', components: 
+                    { path: ':id', alias: '/s/:id', name: 'servico', components: 
                         {
                             default: Servico,
                             indicadores: Indicadores,
