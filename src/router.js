@@ -126,7 +126,7 @@ router.beforeEach((to) => { //parametros: to, from e next, sendo que  next está
     //console.log('Destino: ', to);
     //verificar se o usuário está autorizado a acessar a rota.
 
-    //console.log('Método executado antes do acesso a rota destino');
+    //console.log('Guarda de rota executado antes do acesso a rota destino');
     //console.log(to.meta);
     if(to.meta.requerAutorizacao) {
         console.log('Validar o acesso');
@@ -134,6 +134,12 @@ router.beforeEach((to) => { //parametros: to, from e next, sendo que  next está
         console.log('Apenas seguir a navegação');
     }
 }); //método chamado antes de qualquer navegação, independente de que rota será acessada, é um guarda de rota global
+
+router.afterEach((to, from) => { //mesma ideia do beforeEach acima
+    //console.log('Guarda de rota executado após a conclusão da navegação');
+    //console.log('Origem: ', from);
+    //console.log('Destino: ', to);
+});
 
 
 export default router;
