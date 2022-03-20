@@ -30,7 +30,16 @@ const routes = [
         children: [
             { path: 'vendas', component: Vendas, children: 
                 [
-                    { path: 'leads', component: Leads, name: 'leads' }, //localhost:8080/home/vendas/leads
+                    { 
+                        path: 'leads', 
+                        component: Leads, 
+                        name: 'leads',
+                        //beforeEnter(to, from, next) { // parametros, to, from, e next 
+                        beforeEnter() { // parametros, to, from, e next 
+                            //verificar se o user tem permissão de carregar a rota
+                            console.log('Guarda de rota beforeEnter');
+                        }
+                    }, //localhost:8080/home/vendas/leads
                     { 
                         path: 'leads/:id/:outroParametro',
                         props: true,
@@ -121,24 +130,30 @@ const router = createRouter({
     //routes   -- outra forma, somente assim pois tem o mesmo nome (chave e valor)
 });
 
-router.beforeEach((to) => { //parametros: to, from e next, sendo que  next está sendo descontinuado na proxima versao do vue, Vue4
+//guarda global
+//router.beforeEach((to, from, next) => { //parametros: to, from e next, sendo que  next está sendo descontinuado na proxima versao do vue, Vue4
+router.beforeEach(() => { 
     //console.log('Origem: ', from);
     //console.log('Destino: ', to);
     //verificar se o usuário está autorizado a acessar a rota.
 
     //console.log('Guarda de rota executado antes do acesso a rota destino');
     //console.log(to.meta);
-    if(to.meta.requerAutorizacao) {
-        console.log('Validar o acesso');
-    } else {
-        console.log('Apenas seguir a navegação');
-    }
+    // if(to.meta.requerAutorizacao) {
+    //     console.log('Validar o acesso');
+    // } else {
+    //     console.log('Apenas seguir a navegação');
+    // }
+    console.log('Guarda Global beforeEach');
 }); //método chamado antes de qualquer navegação, independente de que rota será acessada, é um guarda de rota global
 
-router.afterEach((to, from) => { //mesma ideia do beforeEach acima
+//guarda global
+//router.afterEach((to, from) => { //mesma ideia do beforeEach acima
+router.afterEach(() => { 
     //console.log('Guarda de rota executado após a conclusão da navegação');
     //console.log('Origem: ', from);
     //console.log('Destino: ', to);
+    console.log('Guarda Global afterEach');
 });
 
 
