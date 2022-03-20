@@ -41,7 +41,10 @@ export default {
         parametrosDerelacionamento: '_expand=lead&_expand=servico'
     }),
     created() {
-        this.getDadosApi(`http://localhost:3000/contratos?${this.parametrosDerelacionamento}`);
+        //console.log(this.$route);
+        const queryParams = new URLSearchParams(this.$route.query).toString();
+        const url = `http://localhost:3000/contratos?${this.parametrosDerelacionamento}&${queryParams}`;
+        this.getDadosApi(url);
     },
     beforeRouteUpdate(to, from, next) {
         
