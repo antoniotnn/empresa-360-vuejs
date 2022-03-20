@@ -19,10 +19,12 @@ import VendasPadrao from '@/components/vendas/VendasPadrao.vue';
 const routes = [
     {
         path: '/', //localhost:8080/
-        component: Site
+        component: Site,
+        meta: { requerAutorizacao: false }
     },
     {
         path: '/home', //localhost:8080/home
+        meta: { requerAutorizacao: true },
         alias: '/app',
         component: Home,
         children: [
@@ -93,7 +95,8 @@ const routes = [
     },
     {
         path: '/login', //localhost:8080/login
-        component: Login
+        component: Login,
+        meta: { requerAutorizacao: false, campo2: 'teste', campo3: 50 }
     },
     { path: '/redirecionamento-1', redirect: '/home/servicos' }, // apenas um redirecionamento, e não uma rota alternativa
     { path: '/redirecionamento-2', redirect: { name: 'leads' } }, // outra forma, apontando pra outro lugar, pelo name
@@ -118,12 +121,19 @@ const router = createRouter({
     //routes   -- outra forma, somente assim pois tem o mesmo nome (chave e valor)
 });
 
-router.beforeEach((to, from) => { //parametros: to, from e next, sendo que  next está sendo descontinuado na proxima versao do vue, Vue4
-    console.log('Origem: ', from);
-    console.log('Destino: ', to);
+router.beforeEach((to) => { //parametros: to, from e next, sendo que  next está sendo descontinuado na proxima versao do vue, Vue4
+    //console.log('Origem: ', from);
+    //console.log('Destino: ', to);
     //verificar se o usuário está autorizado a acessar a rota.
 
-    console.log('Método executado antes do acesso a rota destino');
+    //console.log('Método executado antes do acesso a rota destino');
+    //console.log(to.meta);
+    if(to.meta.requerAutorizacao) {
+        console.log('Validar o acesso');
+    } else {
+        console.log('Apenas seguir a navegação');
+    }
 }); //método chamado antes de qualquer navegação, independente de que rota será acessada, é um guarda de rota global
+
 
 export default router;
