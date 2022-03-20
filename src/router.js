@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'; //createWebHashHist
 
 import Contratos from '@/components/vendas/Contratos.vue';
 import Dashboard from '@/components/dashboard/Dashboard.vue';
+import DashboardRodape from '@/components/dashboard/DashboardRodape.vue';
 import Home from '@/views/Home.vue';
 import Indicadores from '@/components/servicos/Indicadores.vue';
 import Lead from '@/components/vendas/Lead.vue';
@@ -42,7 +43,12 @@ const routes = [
                     } //localhost:8080/home/servicos/5
                 ] 
             }, //localhost:8080/home/servicos
-            { path: 'dashboard', component: Dashboard } //localhost:8080/home/dashboard
+            { path: 'dashboard', components: 
+                {
+                    default: Dashboard,
+                    rodape: DashboardRodape
+                } 
+            } //localhost:8080/home/dashboard
         ]
     },
     {
