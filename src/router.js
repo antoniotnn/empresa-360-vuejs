@@ -126,6 +126,9 @@ const routes = [
 const router = createRouter({
     //history: createWebHashHistory(), //seta o modo hash, na navegação
     history: createWebHistory(), //seta o modo History, na navegação
+    scrollBehavior() { //manipulação de scroll automático de forma global.
+        return { left: 0, top: 150 } //left = x, top = y 
+    },
     routes: routes
     //routes   -- outra forma, somente assim pois tem o mesmo nome (chave e valor)
 });
