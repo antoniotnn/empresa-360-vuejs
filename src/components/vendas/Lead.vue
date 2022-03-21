@@ -44,6 +44,12 @@ export default {
         // console.log(this.id, this.outroParametro);
         //this.getDadosApi(`http://localhost:3000/leads/${this.$route.params.id}`);
         this.getDadosApi(`http://localhost:3000/leads/${this.id}`);
+    },
+    //beforeRouteLeave(to, from, next) { // pode ser usado esses parametros, na versão 2 do vue, passaria o valor boolean para o next() , ex: next(confirmar)
+    beforeRouteLeave() {
+        const confirmar = window.confirm('Deseja sair deste formulário?');
+
+        return confirmar;
     }
 }
 </script>

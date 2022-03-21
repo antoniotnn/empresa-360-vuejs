@@ -46,6 +46,10 @@ export default {
     //beforeRouteEnter(to, from, next) { // trabalha com esses parametros
     beforeRouteEnter() { 
         console.log('Guarda de Componente beforeRouteEnter');
+    },
+    //beforeRouteLeave(to, from, next) { // tambem trabalha opcionalmente com esses parametros
+    beforeRouteLeave() { // tambem trabalha opcionalmente com esses parametros
+        console.log('Guarda de componente beforeRouteLeave');
     }
 }
 </script>
