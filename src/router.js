@@ -156,5 +156,9 @@ router.afterEach(() => {
     console.log('Guarda Global afterEach');
 });
 
+router.beforeResolve(() => {
+    console.log('Guarda global beforeResolve');
+});
+
 
 export default router;
