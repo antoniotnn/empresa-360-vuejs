@@ -12,6 +12,10 @@ export default {
     created() {
         //console.log('Opcoes', this.$route.params.id);
         //console.log('Parâmetro via props', this.id);
+    },
+    //beforeRouteUpdate(to, from) { // pode usar parametros to, from
+    beforeRouteUpdate() { // pode usar parametros to, from
+        console.log('Guarda de Componente beforeRouteUpdate');
     }
 }
 </script>
