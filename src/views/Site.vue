@@ -6,13 +6,13 @@
             
                 <ul class="navbar-nav links">
                     <li class="nav-item"> 
-                        <router-link class="nav-link" to="/">Seção 1</router-link>
+                        <router-link class="nav-link" to="#secao_1">Seção 1</router-link>
                     </li>
                     <li class="nav-item"> 
-                        <router-link class="nav-link" to="/">Seção 2</router-link>
+                        <router-link class="nav-link" :to="{ path: '/', hash: '#secao_2' }">Seção 2</router-link>
                     </li>
                     <li class="nav-item"> 
-                        <router-link class="nav-link" to="/">Seção 3</router-link>
+                        <router-link class="nav-link" :to="{ path: '/', hash: '#secao_3' }">Seção 3</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" to="/login">Acessar</router-link>
@@ -46,7 +46,7 @@
 
             <div class="row mt-5 p-5 bg-light">
                 <div class="col">
-                    <h3>Seção 1</h3>
+                    <h3 id="secao_1">Seção 1</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas posuere luctus elit, et blandit neque pulvinar a. Nunc id consectetur ipsum. Sed dignissim turpis quis fringilla pretium. Sed bibendum faucibus ex, tincidunt aliquet mauris commodo accumsan. Vivamus commodo risus quis euismod tempus. Donec non hendrerit quam. Vivamus laoreet lacus sed neque tristique pulvinar. Vestibulum in maximus dolor. Mauris efficitur libero quis placerat placerat.</p>
                     <p>Proin sollicitudin orci ligula, ac bibendum ante porttitor ac. Mauris a sem id augue blandit dapibus. Fusce facilisis mi et velit porttitor suscipit. Praesent ut nunc ullamcorper, pretium augue vitae, bibendum ligula. Duis ut augue lobortis, congue erat et, placerat nisl. Nam sed lobortis leo. Pellentesque gravida hendrerit urna, vitae ullamcorper ante pharetra eget. Integer consectetur laoreet ultricies. Nunc vestibulum pulvinar sodales.</p>
                 </div>
@@ -54,14 +54,14 @@
 
             <div class="row mt-5 p-5">
                 <div class="col">
-                    <h3>Seção 2</h3>
+                    <h3 id="secao_2">Seção 2</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas posuere luctus elit, et blandit neque pulvinar a. Nunc id consectetur ipsum. Sed dignissim turpis quis fringilla pretium. Sed bibendum faucibus ex, tincidunt aliquet mauris commodo accumsan. Vivamus commodo risus quis euismod tempus. Donec non hendrerit quam. Vivamus laoreet lacus sed neque tristique pulvinar. Vestibulum in maximus dolor. Mauris efficitur libero quis placerat placerat.</p>
                 </div>
             </div>
 
             <div class="row mt-5 p-5 bg-light">
                 <div class="col">
-                    <h3>Seção 3</h3>
+                    <h3 id="secao_3">Seção 3</h3>
                     <p>Proin sollicitudin orci ligula, ac bibendum ante porttitor ac. Mauris a sem id augue blandit dapibus. Fusce facilisis mi et velit porttitor suscipit. Praesent ut nunc ullamcorper, pretium augue vitae, bibendum ligula. Duis ut augue lobortis, congue erat et, placerat nisl. Nam sed lobortis leo. Pellentesque gravida hendrerit urna, vitae ullamcorper ante pharetra eget. Integer consectetur laoreet ultricies. Nunc vestibulum pulvinar sodales.</p>
                 </div>
             </div>

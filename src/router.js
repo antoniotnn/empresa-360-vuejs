@@ -126,8 +126,16 @@ const routes = [
 const router = createRouter({
     //history: createWebHashHistory(), //seta o modo hash, na navegação
     history: createWebHistory(), //seta o modo History, na navegação
-    scrollBehavior() { //manipulação de scroll automático de forma global.
-        return { left: 0, top: 150 } //left = x, top = y 
+    scrollBehavior(to) { //manipulação de scroll automático de forma global. // aceita o parametro to ( pra onde estamos indo na rota)
+        //return { left: 0, top: 150 } //left = x, top = y 
+        console.log(to.hash);
+
+        if(to.hash){
+            return { el: to.hash } // to.hash deve corresponder a um id de elemento HTML
+            //fragmento = #secao_1 => id = secao_1
+        }
+
+        return { left: 0, top: 0 }
     },
     routes: routes
     //routes   -- outra forma, somente assim pois tem o mesmo nome (chave e valor)
@@ -147,7 +155,7 @@ router.beforeEach(() => {
     // } else {
     //     console.log('Apenas seguir a navegação');
     // }
-    console.log('Guarda Global beforeEach');
+    //console.log('Guarda Global beforeEach');
 }); //método chamado antes de qualquer navegação, independente de que rota será acessada, é um guarda de rota global
 
 //guarda global
@@ -156,11 +164,11 @@ router.afterEach(() => {
     //console.log('Guarda de rota executado após a conclusão da navegação');
     //console.log('Origem: ', from);
     //console.log('Destino: ', to);
-    console.log('Guarda Global afterEach');
+    //console.log('Guarda Global afterEach');
 });
 
 router.beforeResolve(() => {
-    console.log('Guarda global beforeResolve');
+    //console.log('Guarda global beforeResolve');
 });
 
 
