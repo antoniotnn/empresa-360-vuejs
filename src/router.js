@@ -16,23 +16,22 @@ import { createRouter, createWebHistory } from 'vue-router'; //createWebHashHist
 // import Vendas from '@/components/vendas/Vendas.vue';
 // import VendasPadrao from '@/components/vendas/VendasPadrao.vue';
 
-//lazy loading (importacao tardia de componentes)
-
-const Contratos = () => import('@/components/vendas/Contratos.vue'); //importacao dinâmica, ou seja, somente quando precisar desse componente, a rota for acessada, é que a importação será feita.
-const Dashboard = () => import('@/components/dashboard/Dashboard.vue');
-const DashboardRodape = () => import('@/components/dashboard/DashboardRodape.vue');
+//lazy loading (importacao tardia de componentes) //importacao dinâmica, ou seja, somente quando precisar desse componente, a rota for acessada, é que a importação será feita.
+const Contratos = () => import(/* webpackChunkName: "vendas" */ '@/components/vendas/Contratos.vue'); //ao adicionar esse bloco comentado com o parametro webpackChunkName: "nomeDoChunck", o que acontece é que , os Componentes que possuem esse parametro ficam agrupados em um unico arquivo .js que é entregue sob demanda quando acionado algum componente daquele grupo.
+const Dashboard = () => import(/* webpackChunkName: "dashboard" */ '@/components/dashboard/Dashboard.vue');
+const DashboardRodape = () => import(/* webpackChunkName: "dashboard" */ '@/components/dashboard/DashboardRodape.vue');
 const Home = () => import('@/views/Home.vue');
-const Indicadores = () => import('@/components/servicos/Indicadores.vue');
-const Lead = () => import('@/components/vendas/Lead.vue');
-const Leads = () => import('@/components/vendas/Leads.vue');
+const Indicadores = () => import(/* webpackChunkName: "servicos" */ '@/components/servicos/Indicadores.vue');
+const Lead = () => import(/* webpackChunkName: "vendas" */ '@/components/vendas/Lead.vue');
+const Leads = () => import(/* webpackChunkName: "vendas" */ '@/components/vendas/Leads.vue');
 const Login = () => import('@/views/Login.vue');
-const Opcoes = () => import('@/components/servicos/Opcoes.vue');
+const Opcoes = () => import(/* webpackChunkName: "servicos" */ '@/components/servicos/Opcoes.vue');
 const PaginaNaoEncontrada = () => import('@/views/PaginaNaoEncontrada.vue');
-const Servico = () => import('@/components/servicos/Servico.vue');
-const Servicos = () => import('@/components/servicos/Servicos.vue');
+const Servico = () => import(/* webpackChunkName: "servicos" */ '@/components/servicos/Servico.vue');
+const Servicos = () => import(/* webpackChunkName: "servicos" */ '@/components/servicos/Servicos.vue');
 const Site = () => import('@/views/Site.vue');
-const Vendas = () => import('@/components/vendas/Vendas.vue');
-const VendasPadrao = () => import('@/components/vendas/VendasPadrao.vue');
+const Vendas = () => import(/* webpackChunkName: "vendas" */ '@/components/vendas/Vendas.vue');
+const VendasPadrao = () => import(/* webpackChunkName: "vendas" */ '@/components/vendas/VendasPadrao.vue');
 
 const routes = [
     {
