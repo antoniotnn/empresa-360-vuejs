@@ -126,9 +126,14 @@ const routes = [
 const router = createRouter({
     //history: createWebHashHistory(), //seta o modo hash, na navegação
     history: createWebHistory(), //seta o modo History, na navegação
-    scrollBehavior(to) { //manipulação de scroll automático de forma global. // aceita o parametro to ( pra onde estamos indo na rota)
+    scrollBehavior(to, from, savedPosition) { //manipulação de scroll automático de forma global. // aceita além dos conhecidos parametros:  parametro to ( pra onde estamos indo na rota), from( de onde estamos vindo), e outro parametro o savedPosition, que armazena as posicoes de hash acessadas pelo usuario
         //return { left: 0, top: 150 } //left = x, top = y 
-        console.log(to.hash);
+        //console.log(to.hash);
+        console.log(savedPosition);
+
+        if(savedPosition) {
+            return savedPosition;
+        }
 
         if(to.hash){
             return { el: to.hash } // to.hash deve corresponder a um id de elemento HTML
