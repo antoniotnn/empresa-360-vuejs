@@ -1,20 +1,38 @@
 import { createRouter, createWebHistory } from 'vue-router'; //createWebHashHistory
 
-import Contratos from '@/components/vendas/Contratos.vue';
-import Dashboard from '@/components/dashboard/Dashboard.vue';
-import DashboardRodape from '@/components/dashboard/DashboardRodape.vue';
-import Home from '@/views/Home.vue';
-import Indicadores from '@/components/servicos/Indicadores.vue';
-import Lead from '@/components/vendas/Lead.vue';
-import Leads from '@/components/vendas/Leads.vue';
-import Login from '@/views/Login.vue';
-import Opcoes from '@/components/servicos/Opcoes.vue';
-import PaginaNaoEncontrada from '@/views/PaginaNaoEncontrada.vue';
-import Servico from '@/components/servicos/Servico.vue';
-import Servicos from '@/components/servicos/Servicos.vue';
-import Site from '@/views/Site.vue';
-import Vendas from '@/components/vendas/Vendas.vue';
-import VendasPadrao from '@/components/vendas/VendasPadrao.vue';
+//import Contratos from '@/components/vendas/Contratos.vue';
+// import Dashboard from '@/components/dashboard/Dashboard.vue';
+// import DashboardRodape from '@/components/dashboard/DashboardRodape.vue';
+// import Home from '@/views/Home.vue';
+// import Indicadores from '@/components/servicos/Indicadores.vue';
+// import Lead from '@/components/vendas/Lead.vue';
+// import Leads from '@/components/vendas/Leads.vue';
+// import Login from '@/views/Login.vue';
+// import Opcoes from '@/components/servicos/Opcoes.vue';
+// import PaginaNaoEncontrada from '@/views/PaginaNaoEncontrada.vue';
+// import Servico from '@/components/servicos/Servico.vue';
+// import Servicos from '@/components/servicos/Servicos.vue';
+// import Site from '@/views/Site.vue';
+// import Vendas from '@/components/vendas/Vendas.vue';
+// import VendasPadrao from '@/components/vendas/VendasPadrao.vue';
+
+//lazy loading (importacao tardia de componentes)
+
+const Contratos = () => import('@/components/vendas/Contratos.vue'); //importacao dinâmica, ou seja, somente quando precisar desse componente, a rota for acessada, é que a importação será feita.
+const Dashboard = () => import('@/components/dashboard/Dashboard.vue');
+const DashboardRodape = () => import('@/components/dashboard/DashboardRodape.vue');
+const Home = () => import('@/views/Home.vue');
+const Indicadores = () => import('@/components/servicos/Indicadores.vue');
+const Lead = () => import('@/components/vendas/Lead.vue');
+const Leads = () => import('@/components/vendas/Leads.vue');
+const Login = () => import('@/views/Login.vue');
+const Opcoes = () => import('@/components/servicos/Opcoes.vue');
+const PaginaNaoEncontrada = () => import('@/views/PaginaNaoEncontrada.vue');
+const Servico = () => import('@/components/servicos/Servico.vue');
+const Servicos = () => import('@/components/servicos/Servicos.vue');
+const Site = () => import('@/views/Site.vue');
+const Vendas = () => import('@/components/vendas/Vendas.vue');
+const VendasPadrao = () => import('@/components/vendas/VendasPadrao.vue');
 
 const routes = [
     {
@@ -132,7 +150,7 @@ const router = createRouter({
         console.log(savedPosition);
 
         if(savedPosition) {
-            return savedPosition;
+            return savedPosition; //a aplicacao performa melhor utilizando-se disto.
         }
 
         if(to.hash){
